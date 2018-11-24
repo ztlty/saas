@@ -18,4 +18,5 @@ urlpatterns = patterns(
     (r'^contactus/$', 'contactus'),
     (r'^api/get_hosts/$', 'get_hosts'),
     (r'^api/fast_execute_script/$', 'fast_execute_script'),
+    (r'^api/test/$', 'test'),
 )

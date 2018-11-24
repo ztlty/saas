@@ -61,6 +61,7 @@ def get_hosts(request):
         """
         client = get_client_by_request(request)
         client.set_bk_api_ver('v2')
+        bk_biz_id = request.GET["bk_biz_id"]
         res = client.cc.search_host({
             "page": {"start": 0, "limit": 5, "sort": "bk_host_id"},
             "ip": {
@@ -94,7 +95,7 @@ def get_hosts(request):
                         {
                             "field": "bk_biz_id",
                             "operator": "$eq",
-                            "value": 2
+                            "value": bk_biz_id
                         }
                     ]
                 }
@@ -180,3 +181,9 @@ def fast_execute_script(request):
         },
         'message': '%s: elapsed %ss' % (res.get('message'), round(time.time() - start, 2))
     })
+
+def test(request):
+    return render_json({
+        'result': True,
+        'data': 'world',
+        'message':'hello'})
