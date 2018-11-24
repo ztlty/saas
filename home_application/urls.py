@@ -16,5 +16,6 @@ urlpatterns = patterns(
     (r'^$', 'home'),
     (r'^dev-guide/$', 'dev_guide'),
     (r'^contactus/$', 'contactus'),
-    (r'^get_host_stat/$', 'get_host_stat'),
+    (r'^api/get_hosts/$', 'get_hosts'),
+    (r'^api/fast_execute_script/$', 'fast_execute_script'),
 )
