@@ -30,10 +30,10 @@ from django.conf.global_settings import *  # noqa
 # 应用基本信息配置 (请按照说明修改)
 # ==============================================================================
 # 在蓝鲸智云开发者中心 -> 点击应用ID -> 基本信息 中获取 APP_ID 和 APP_TOKEN 的值
-APP_ID = 'dytest'
-APP_TOKEN = 'b1e98d48-8e80-4495-a5f1-d590f112d79b'
+APP_ID = 'dingyu'
+APP_TOKEN = '2a8d5f90-b04d-4337-a36c-036332133e1e'
 # 蓝鲸智云开发者中心的域名，形如：http://paas.bking.com
-BK_PAAS_HOST = 'http://paasce-poc.o.qcloud.com'
+BK_PAAS_HOST = 'http://paas-poc.o.qcloud.com'
 
 # 请求官方 API 默认版本号，可选值为："v2" 或 ""；其中，"v2"表示规范化API，""表示未规范化API
 DEFAULT_BK_API_VER = 'v2'
