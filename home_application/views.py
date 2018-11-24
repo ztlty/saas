@@ -10,13 +10,30 @@ See the License for the specific language governing permissions and limitations 
 """
 
 from common.mymako import render_mako_context
-
+from common.log import logger
+from common.mymako import render_mako_context, render_json, render_mako_tostring
+from blueking.component.shortcuts import get_client_by_request, get_client_by_user
+from home_application.models import Scripts
 
 def home(request):
     """
     首页
     """
-    return render_mako_context(request, '/home_application/home.html')
+    client = get_client_by_request(request)
+    client.set_bk_api_ver('v2')
+    # 查询业务
+    res = client.cc.search_business()
+
+    if res.get('result', False):
+        bk_biz_list = res.get('data').get('info')
+    else:
+        logger.error(u"请求业务列表失败：%s" % res.get('message'))
+        bk_biz_list = []
+    script_list = Scripts.objects.all()
+    return render_mako_context(request, '/home_application/index.html',{
+                                   'bk_biz_list': bk_biz_list,
+                                   'script_list': script_list,
+                               })
 
 
 def dev_guide(request):
